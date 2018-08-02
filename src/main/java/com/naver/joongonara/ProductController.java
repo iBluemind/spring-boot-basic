@@ -10,40 +10,17 @@ import javax.persistence.*;
 public class ProductController {
 
     @Autowired
-    private EntityManagerFactory entityManagerFactory;
+    ProductService productService;
 
     @GetMapping(path = "/{id}")
     @ResponseBody
     Product detail(@PathVariable int id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        Product existedProduct = entityManager.find(Product.class, id);
-
-        return existedProduct;
+        return productService.detail(id);
     }
 
     @PostMapping
     @ResponseBody
     Product sell(@RequestBody Product requestedProduct) {
-        Product createdProduct = new Product();
-
-        createdProduct.setName(requestedProduct.getName());
-        createdProduct.setDescription(requestedProduct.getDescription());
-        createdProduct.setPrice(requestedProduct.getPrice());
-
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-
-        try {
-            entityTransaction.begin();
-            entityManager.persist(createdProduct);
-            entityTransaction.commit();
-        } catch(Exception error) {
-            error.printStackTrace();
-            entityTransaction.rollback();
-        } finally {
-            entityManager.close();
-        }
-
-        return createdProduct;
+        return productService.sell(requestedProduct);
     }
 }
