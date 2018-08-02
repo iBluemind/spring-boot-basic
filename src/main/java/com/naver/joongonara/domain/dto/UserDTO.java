@@ -1,4 +1,6 @@
-package com.naver.joongonara;
+package com.naver.joongonara.domain.dto;
+
+import com.naver.joongonara.domain.vo.Address;
 
 import java.io.Serializable;
 

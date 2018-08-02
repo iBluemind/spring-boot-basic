@@ -1,4 +1,4 @@
-package com.naver.joongonara;
+package com.naver.joongonara.domain.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 

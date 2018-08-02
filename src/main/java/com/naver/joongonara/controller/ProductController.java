@@ -1,9 +1,9 @@
-package com.naver.joongonara;
+package com.naver.joongonara.controller;
 
+import com.naver.joongonara.domain.entity.Product;
+import com.naver.joongonara.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.*;
 
 @RestController
 @RequestMapping(value = "/products")

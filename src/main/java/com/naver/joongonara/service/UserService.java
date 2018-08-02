@@ -1,6 +1,9 @@
-package com.naver.joongonara;
+package com.naver.joongonara.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.naver.joongonara.dao.UserRepository;
+import com.naver.joongonara.domain.entity.User;
+import com.naver.joongonara.domain.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

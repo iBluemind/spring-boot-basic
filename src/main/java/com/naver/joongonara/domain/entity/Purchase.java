@@ -1,10 +1,9 @@
-package com.naver.joongonara;
+package com.naver.joongonara.domain.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 public class Purchase {

@@ -1,4 +1,4 @@
-package com.naver.joongonara;
+package com.naver.joongonara.domain.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

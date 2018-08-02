@@ -1,10 +1,9 @@
-package com.naver.joongonara;
+package com.naver.joongonara.service;
 
+import com.naver.joongonara.dao.ProductRepository;
+import com.naver.joongonara.domain.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 @Service
 public class ProductService {

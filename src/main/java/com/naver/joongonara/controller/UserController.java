@@ -1,5 +1,8 @@
-package com.naver.joongonara;
+package com.naver.joongonara.controller;
 
+import com.naver.joongonara.domain.entity.User;
+import com.naver.joongonara.domain.dto.UserDTO;
+import com.naver.joongonara.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
