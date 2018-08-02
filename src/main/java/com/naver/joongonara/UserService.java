@@ -11,6 +11,10 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    public User profile(int id) {
+        return userRepository.getOne(id);
+    }
+
     public User signUp(User newUser) {
         User createdUser = new User();
 

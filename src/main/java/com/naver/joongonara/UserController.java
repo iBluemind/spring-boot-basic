@@ -14,6 +14,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @GetMapping(path = "/{id}")
+    @ResponseBody
+    ResponseEntity<User> profile(@PathVariable int id) {
+        User me = userService.profile(id);
+        return ResponseEntity.ok(me);
+    }
+
     @PostMapping
     @ResponseBody
     ResponseEntity<User> signUp(@RequestBody User newUser) {
