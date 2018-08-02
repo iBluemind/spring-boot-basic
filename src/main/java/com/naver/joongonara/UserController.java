@@ -23,19 +23,19 @@ public class UserController {
 
     @PostMapping
     @ResponseBody
-    ResponseEntity<User> signUp(@RequestBody User newUser) {
-
-        if (!isValidAge(newUser.getAge())) {
+    ResponseEntity<User> signUp(@RequestBody UserDTO newUserDTO) {
+        if (!isValidAge(newUserDTO.getAge())) {
             // Bad Request 400
             return ResponseEntity.badRequest().build();
         }
 
-        if (!isValidEmailAddress(newUser.getEmail())) {
+        if (!isValidEmailAddress(newUserDTO.getEmail())) {
             // Bad Request 400
             return ResponseEntity.badRequest().build();
         }
+
         // Create User
-        User createdUser = userService.signUp(newUser);
+        User createdUser = userService.signUp(newUserDTO);
 
         // Return response
         return ResponseEntity.ok(createdUser);

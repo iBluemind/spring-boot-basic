@@ -1,5 +1,6 @@
 package com.naver.joongonara;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +12,16 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     public User profile(int id) {
         return userRepository.getOne(id);
     }
 
-    public User signUp(User newUser) {
-        User createdUser = new User();
+    public User signUp(UserDTO newUserDTO) {
 
-        createdUser.setName(newUser.getName());
-        createdUser.setAddress(newUser.getAddress());
-        createdUser.setAge(newUser.getAge());
-        createdUser.setEmail(newUser.getEmail());
-        createdUser.setGender(newUser.getGender());
+        User createdUser = objectMapper.convertValue(newUserDTO, User.class);
         createdUser.setCreatedAt(LocalDateTime.now());
 
         return userRepository.save(createdUser);
