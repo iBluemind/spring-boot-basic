@@ -12,6 +12,15 @@ public class ProductController {
     @Autowired
     private EntityManagerFactory entityManagerFactory;
 
+    @GetMapping(path = "/{id}")
+    @ResponseBody
+    Product detail(@PathVariable int id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Product existedProduct = entityManager.find(Product.class, id);
+
+        return existedProduct;
+    }
+
     @PostMapping
     @ResponseBody
     Product sell(@RequestBody Product requestedProduct) {
